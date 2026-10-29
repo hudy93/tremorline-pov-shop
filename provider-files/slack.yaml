@@ -1,19 +1,7 @@
-# Excerpt of Slack's Web API description with the channels.* methods, before they were retired (February 2021).
+# Excerpt of Slack's Web API description after the channels.* methods were retired (February 2021).
 openapi: 3.0.0
-info: { title: Slack Web API (excerpt), version: "1.7.0" }
+info: { title: Slack Web API (excerpt), version: "1.8.0" }
 paths:
-  /channels.list:
-    get:
-      parameters:
-        - { name: exclude_archived, in: query, schema: { type: boolean } }
-      responses:
-        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/channels" } } } }
-  /channels.history:
-    get:
-      parameters:
-        - { name: channel, in: query, required: true, schema: { type: string } }
-      responses:
-        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/messages" } } } }
   /conversations.list:
     get:
       parameters:
