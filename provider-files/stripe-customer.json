@@ -1,3 +1,1 @@
-{"id":"cus_PoV1","object":"customer","email":"jenny@example.com","currency":"eur","delinquent":false,
- "sources":{"object":"list","data":[{"id":"card_PoV1","object":"card","brand":"Visa","last4":"4242"}],"has_more":false,"url":"/v1/customers/cus_PoV1/sources"},
- "subscriptions":{"object":"list","data":[],"has_more":false,"url":"/v1/customers/cus_PoV1/subscriptions"}}
+{"id":"cus_PoV1","object":"customer","email":"jenny@example.com","currency":"eur","delinquent":false}

@@ -1,22 +1,7 @@
-# Excerpt of GitHub's REST description before the OAuth Authorizations API was removed (November 2020).
+# Excerpt of GitHub's REST description after the OAuth Authorizations API was removed (November 2020).
 openapi: 3.0.3
-info: { title: GitHub v3 REST API (excerpt), version: "1.1.4" }
+info: { title: GitHub v3 REST API (excerpt), version: "1.1.5" }
 paths:
-  /authorizations:
-    get:
-      responses:
-        "200":
-          description: Response
-          content:
-            application/json:
-              schema: { type: array, items: { $ref: "#/components/schemas/authorization" } }
-    post:
-      responses:
-        "201":
-          description: Response
-          content:
-            application/json:
-              schema: { $ref: "#/components/schemas/authorization" }
   /user/repos:
     get:
       parameters:
