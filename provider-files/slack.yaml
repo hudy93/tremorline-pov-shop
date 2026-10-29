@@ -1,0 +1,40 @@
+# Excerpt of Slack's Web API description with the channels.* methods, before they were retired (February 2021).
+openapi: 3.0.0
+info: { title: Slack Web API (excerpt), version: "1.7.0" }
+paths:
+  /channels.list:
+    get:
+      parameters:
+        - { name: exclude_archived, in: query, schema: { type: boolean } }
+      responses:
+        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/channels" } } } }
+  /channels.history:
+    get:
+      parameters:
+        - { name: channel, in: query, required: true, schema: { type: string } }
+      responses:
+        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/messages" } } } }
+  /conversations.list:
+    get:
+      parameters:
+        - { name: types, in: query, schema: { type: string } }
+      responses:
+        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/channels" } } } }
+  /chat.postMessage:
+    post:
+      responses:
+        "200": { description: OK, content: { application/json: { schema: { type: object, required: [ok], properties: { ok: { type: boolean }, ts: { type: string } } } } } }
+components:
+  schemas:
+    channels:
+      type: object
+      required: [ok, channels]
+      properties:
+        ok: { type: boolean }
+        channels: { type: array, items: { type: object, properties: { id: { type: string }, name: { type: string } } } }
+    messages:
+      type: object
+      required: [ok, messages]
+      properties:
+        ok: { type: boolean }
+        messages: { type: array, items: { type: object, properties: { ts: { type: string }, text: { type: string } } } }

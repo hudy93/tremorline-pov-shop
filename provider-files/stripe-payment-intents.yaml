@@ -1,0 +1,34 @@
+# Excerpt of Stripe's OpenAPI document before API version 2022-11-15: only GET /v1/payment_intents/{intent}
+# and the PaymentIntent fields the test repository reads. Not the full document (see docs/proof-of-value.md).
+openapi: 3.0.0
+info: { title: Stripe API (excerpt), version: "2022-08-01" }
+paths:
+  /v1/payment_intents/{intent}:
+    get:
+      parameters:
+        - { name: intent, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: Successful response.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/payment_intent" }
+components:
+  schemas:
+    payment_intent:
+      type: object
+      required: [id, object, amount, currency, status, charges]
+      properties:
+        id: { type: string }
+        object: { type: string }
+        amount: { type: integer }
+        currency: { type: string }
+        status: { type: string }
+        charges:
+          type: object
+          required: [object, data, has_more, url]
+          properties:
+            object: { type: string }
+            data: { type: array, items: { type: object, properties: { id: { type: string }, paid: { type: boolean } } } }
+            has_more: { type: boolean }
+            url: { type: string }

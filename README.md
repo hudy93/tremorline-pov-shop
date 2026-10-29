@@ -13,4 +13,4 @@ Lines that a historical API change breaks end with a marker comment naming the c
 counts as a false alarm. Some lines are deliberate traps: the same field or path name in code that has
 nothing to do with the provider.
 
-The code is written to be read, not run: it has no build files and its dependencies are not installed.
+Each folder has the manifest a real project would have (`pom.xml`, `package.json`, `requirements.txt`), so Tremorline's "Find APIs" can tell which providers the code uses. The code is written to be read, not run: there are no tests yet and nothing is built.
